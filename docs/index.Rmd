@@ -1,0 +1,53 @@
+---
+title: "Misclassification in stratified agricultural area samples"
+author: "**Cristiano Ferraz, Raydonal Ospina, André Leite and Hemı́lio Coelho**"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    katex: true
+    toc: false
+    highlight: github
+---
+
+<!-- Para deixar fundo no rpubs.com branco como deveria ser... -->
+<style>
+body { background-color: white; }
+pre, pre:not([class]) { background-color: white; }
+.center {
+  text-align: center;
+}
+</style>
+<!-- Fim de "Para deixar fundo no rpubs.com branco como deveria ser..." -->
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, fig.retina = TRUE)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(plotly)
+library(paletteer)
+library(DT)
+library(MontgomeryDAE) # https://github.com/ehassler/MontgomeryDAE
+library(htmltools)
+```
+
+> [...] all models are approximations. Essentially, all models are wrong, but some are useful. However, the approximate nature of the model must always be borne in mind [...] 
+<div style="text-align: right">
+>--- **George Box** (1987, *Empirical Model-Building and Response Surfaces*, p. 424)
+</div>
+
+<hr/>
+
+### Abstract
+
+Stratification is a sampling technique widely used in surveys to improve efficiency of estimators. Strata building processes are subject to different types of errors that can lead to misclassification of sampled units, a discrepancy between the stratum from which a unit was selected, and the stratum the unit belongs to in reality. This paper investigates the problem motivated by surveys using stratified area frames of square segments to generate agricultural statistics. Estimators coping with the problem are introduced and their statistical performance is investigated using a Monte Carlo simulation experiment. The study rely on a real-case motivated scenario in which area frames of square segments were applied to surveys carried out in two Brazilian municipalities aiming at comparing different sampling design strategies to generate efficient agricultural statistics. Simulation results
+indicate that the adoption of a naive estimator can introduce bias and inflate variance. It also indicates that in the absence of the needed auxiliary information to use a post-stratified estimator, the best choice is to keep the design-based original sample stratification estimator.
+
+<hr/>
+
+## Stay Tuned
+
+Please visit the [CASTLab page](https://castlab.org) for latest updates and news. Comments, bug reports and
+pull requests are always welcome.
