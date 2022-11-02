@@ -47,6 +47,41 @@ indicate that the adoption of a naive estimator can introduce bias and inflate v
 
 <hr/>
 
+## Simulation
+
+In order to evaluate the statistical performances of the considered estimators, an artificial population resembling the field characteristics of Goiana was built to provide support for a Monte Carlo simulation. 
+
+The population was covered by an area frame of **922 square segments**, keeping the strata population sizes presented in **Table 2:** 314, 232 e 376, for strata 1, 2 and 3, respectively. Strata building observed the same rates of misclassification found in Goiana's experiment (see Table 2).
+
+FAO's GSARS' experiments used a sample of size 60 due to budget constraints. In this study, a **sample size** of 120 with allocation proportional to stratum sizes was considered.  The estimators described in Section 3 were applied to each one of **5,000 Monte Carlo** sample replications, and their distribution, investigated. 
+
+Population means and respective variances for the area cultivated in hectares with sugarcane in each stratum were obtained empirically from Goiana's study and are $\mu _1=28.35$, $\mu_2=22.81$ and  $\mu_3=1.42$, and $\sigma _1^2=2.5$,  $\sigma_2^2=5.0$  and $\sigma_3^2=0.5$.
+
+
+## Estimators
+
+1. **Basic estimator:** The basic estimator corresponds to ignore errors in stratification, keeping the design strata, and choosing to use   $w_{k}={N_{h+}}/{n_{h+}}$, for $k \in S_h$. Thus, under an STSI design, this estimator can be written as follows:
+$$
+	\hat{t}_c = \sum _{h=1}^H\sum _{k{\in}S_h}\left({N_{h+}}/{n_{h+}}\right)y_k=\sum _{h=1}^H{N_{h+}}\overline{y}_{h+},
+$$
+where $\overline{y}_{h+}$ is the mean of all the segments in the sample originally selected from stratum $h$. In this case, no matter the sampling units actually belong to another stratum, they are kept in the design stratum anyway.
+
+2. **Unweighted estimator:**  The unweighted estimator corresponds to proceed corrections to the basic estimator using only the field stratum observation in the sample. According to Table 3, in Goiana, a sample of size $n_{1+}=42$ was selected from stratum 1, and from these, only $n_{+1}=31$ remained in stratum 1. Stratum 1, by design, was composed by $N_{1+}=314$ segments (see Table 2). Then for a segment ${k}$ in stratum 1, $w_{k}={\left[314-\left(42-31\right)\right]}/{31}$. Thus, $w_{k}=\left[{N_{j+}-\left(n_{j+}-n_{+j}\right)}\right]/{n_{+j}}$, for $k\in A_j$. Note that corrections are made on both, the stratum population and the respective 	sample size. These corrections, however, take into account only those observed sampled units that changed strata.  No tentative is made to proceed corrections to the non-sampled segment numbers. Thus, under STSI design, this estimator can be written as follows:
+$$	
+	\hat{t}_c = \sum _{j=1}^{H}\sum_{k\in A_j} \left[N_{j+}-\left(n_{j+}-n_{+j}\right)\right]{y}_{k}/n_{+j}.
+%	 = \sum _{j=1}^{H}\left[N_{j+}-\left(n_{j+}-n_{+j}\right)\right]\overline{y}_{+j},
+$$
+where $\overline{y}_{+j}$ is the mean of the segments in $A_j$.
+	
+3. **Weighted estimator:** The weighted estimator uses sample field data to correct information for the observed and the non-observed segments. Let $\hat{N}_{+j}$ be an estimator for the number of segments over the whole area frame that belong to stratum $j$. Let $w_{k}={\hat{N}_{+j}}/{n_{+j}}$, for $k \in A_j$. Then, 
+$$
+	\hat{t}_c = \displaystyle\displaystyle\sum\limits_{j=1}^H\sum_{k{\in}A_j}\left(\hat{N}_{+j}/n_{+j}\right){y}_{k}=\sum\limits_{j=1}^H\hat{N}_{+j}\overline{y}_{+j}
+$$
+where $\hat{N}_{+j}=\displaystyle\sum\limits_{h=1}^{H}N_{h+}p_{hj}$ and $p_{hj}$ are the proportions of segments in the sample that were originally classified in stratum $h$ but actually belong to stratum $j$ and  $\overline{y}_{+j}$ is the mean of the segments in $A_j$. 
+	
+4. **Post-Stratified estimator:** The post-stratified estimator uses the most updated information for both, the sample and the population sizes. So, for a segment ${k}$ in $A_j$,  $w_{k}={N_{+j}}/{n_{+j}}.$ In practice, no information about the true values $N_{+j}$ is available, but this estimator is important as a benchmark for the performances of the remaining ones. 
+
+
 ## Stay Tuned
 
 Please visit the [CASTLab page](https://castlab.org) for latest updates and news. Comments, bug reports and

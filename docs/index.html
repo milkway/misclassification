@@ -12,7 +12,7 @@
 
 <meta name="author" content="Cristiano Ferraz, Raydonal Ospina, André Leite and Hemı́lio Coelho" />
 
-<meta name="date" content="2022-11-01" />
+<meta name="date" content="2022-11-02" />
 
 <title>Misclassification in stratified agricultural area samples</title>
 
@@ -61,7 +61,7 @@ code span.ot { color: #007020; }
 stratified agricultural area samples</h1>
 <h4 class="author project-author"><strong>Cristiano Ferraz, Raydonal
 Ospina, André Leite and Hemı́lio Coelho</strong></h4>
-<h4 class="date project-date">2022-11-01</h4>
+<h4 class="date project-date">2022-11-02</h4>
 </section>
 
 
@@ -107,6 +107,84 @@ auxiliary information to use a post-stratified estimator, the best
 choice is to keep the design-based original sample stratification
 estimator.</p>
 <hr />
+</div>
+<div id="simulation" class="section level2">
+<h2>Simulation</h2>
+<p>In order to evaluate the statistical performances of the considered
+estimators, an artificial population resembling the field
+characteristics of Goiana was built to provide support for a Monte Carlo
+simulation.</p>
+<p>The population was covered by an area frame of <strong>922 square
+segments</strong>, keeping the strata population sizes presented in
+<strong>Table 2:</strong> 314, 232 e 376, for strata 1, 2 and 3,
+respectively. Strata building observed the same rates of
+misclassification found in Goiana’s experiment (see Table 2).</p>
+<p>FAO’s GSARS’ experiments used a sample of size 60 due to budget
+constraints. In this study, a <strong>sample size</strong> of 120 with
+allocation proportional to stratum sizes was considered. The estimators
+described in Section 3 were applied to each one of <strong>5,000 Monte
+Carlo</strong> sample replications, and their distribution,
+investigated.</p>
+<p>Population means and respective variances for the area cultivated in
+hectares with sugarcane in each stratum were obtained empirically from
+Goiana’s study and are <span class="math inline">\(\mu
+_1=28.35\)</span>, <span class="math inline">\(\mu_2=22.81\)</span> and
+<span class="math inline">\(\mu_3=1.42\)</span>, and <span class="math inline">\(\sigma _1^2=2.5\)</span>, <span class="math inline">\(\sigma_2^2=5.0\)</span> and <span class="math inline">\(\sigma_3^2=0.5\)</span>.</p>
+</div>
+<div id="estimators" class="section level2">
+<h2>Estimators</h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Basic estimator:</strong> The basic estimator corresponds
+to ignore errors in stratification, keeping the design strata, and
+choosing to use <span class="math inline">\(w_{k}={N_{h+}}/{n_{h+}}\)</span>, for <span class="math inline">\(k \in S_h\)</span>. Thus, under an STSI design,
+this estimator can be written as follows: <span class="math display">\[
+\hat{t}_c = \sum _{h=1}^H\sum
+_{k{\in}S_h}\left({N_{h+}}/{n_{h+}}\right)y_k=\sum
+_{h=1}^H{N_{h+}}\overline{y}_{h+},
+\]</span> where <span class="math inline">\(\overline{y}_{h+}\)</span>
+is the mean of all the segments in the sample originally selected from
+stratum <span class="math inline">\(h\)</span>. In this case, no matter
+the sampling units actually belong to another stratum, they are kept in
+the design stratum anyway.</p></li>
+<li><p><strong>Unweighted estimator:</strong> The unweighted estimator
+corresponds to proceed corrections to the basic estimator using only the
+field stratum observation in the sample. According to Table 3, in
+Goiana, a sample of size <span class="math inline">\(n_{1+}=42\)</span>
+was selected from stratum 1, and from these, only <span class="math inline">\(n_{+1}=31\)</span> remained in stratum 1. Stratum
+1, by design, was composed by <span class="math inline">\(N_{1+}=314\)</span> segments (see Table 2). Then
+for a segment <span class="math inline">\({k}\)</span> in stratum 1,
+<span class="math inline">\(w_{k}={\left[314-\left(42-31\right)\right]}/{31}\)</span>.
+Thus, <span class="math inline">\(w_{k}=\left[{N_{j+}-\left(n_{j+}-n_{+j}\right)}\right]/{n_{+j}}\)</span>,
+for <span class="math inline">\(k\in A_j\)</span>. Note that corrections
+are made on both, the stratum population and the respective sample size.
+These corrections, however, take into account only those observed
+sampled units that changed strata. No tentative is made to proceed
+corrections to the non-sampled segment numbers. Thus, under STSI design,
+this estimator can be written as follows: <span class="math display">\[  
+\hat{t}_c = \sum _{j=1}^{H}\sum_{k\in A_j}
+\left[N_{j+}-\left(n_{j+}-n_{+j}\right)\right]{y}_{k}/n_{+j}.
+%    = \sum
+_{j=1}^{H}\left[N_{j+}-\left(n_{j+}-n_{+j}\right)\right]\overline{y}_{+j},
+\]</span> where <span class="math inline">\(\overline{y}_{+j}\)</span>
+is the mean of the segments in <span class="math inline">\(A_j\)</span>.</p></li>
+<li><p><strong>Weighted estimator:</strong> The weighted estimator uses
+sample field data to correct information for the observed and the
+non-observed segments. Let <span class="math inline">\(\hat{N}_{+j}\)</span> be an estimator for the
+number of segments over the whole area frame that belong to stratum
+<span class="math inline">\(j\)</span>. Let <span class="math inline">\(w_{k}={\hat{N}_{+j}}/{n_{+j}}\)</span>, for <span class="math inline">\(k \in A_j\)</span>. Then, <span class="math display">\[
+\hat{t}_c =
+\displaystyle\displaystyle\sum\limits_{j=1}^H\sum_{k{\in}A_j}\left(\hat{N}_{+j}/n_{+j}\right){y}_{k}=\sum\limits_{j=1}^H\hat{N}_{+j}\overline{y}_{+j}
+\]</span> where <span class="math inline">\(\hat{N}_{+j}=\displaystyle\sum\limits_{h=1}^{H}N_{h+}p_{hj}\)</span>
+and <span class="math inline">\(p_{hj}\)</span> are the proportions of
+segments in the sample that were originally classified in stratum <span class="math inline">\(h\)</span> but actually belong to stratum <span class="math inline">\(j\)</span> and <span class="math inline">\(\overline{y}_{+j}\)</span> is the mean of the
+segments in <span class="math inline">\(A_j\)</span>.</p></li>
+<li><p><strong>Post-Stratified estimator:</strong> The post-stratified
+estimator uses the most updated information for both, the sample and the
+population sizes. So, for a segment <span class="math inline">\({k}\)</span> in <span class="math inline">\(A_j\)</span>, <span class="math inline">\(w_{k}={N_{+j}}/{n_{+j}}.\)</span> In practice, no
+information about the true values <span class="math inline">\(N_{+j}\)</span> is available, but this estimator
+is important as a benchmark for the performances of the remaining
+ones.</p></li>
+</ol>
 </div>
 <div id="stay-tuned" class="section level2">
 <h2>Stay Tuned</h2>
